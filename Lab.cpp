@@ -8,6 +8,8 @@ using std::endl;
 unsigned long long int factorial( int arg);
 bool validarCoord(int coordX1V,int coordX2V,int coordX3V,int coordX4V,int coordY1V,int coordY2V,int coordY3V,int coordY4V);
 double distancia(double coordX1D,double coordY1D,double coordX2D,double coordY2D);
+double perimetro(double dist1,double dist2,double dist3);
+double perimetro2(double dist1,double dist2,double dist3);
 
 int main(int argc, char*argv[]){
 	const unsigned long long int limFact=23;
@@ -74,11 +76,15 @@ int main(int argc, char*argv[]){
 	distDiag14=distancia(coordX1,coordY1,coordX4,coordY4);
 	cout<<"Lado 3--"<<distDiag14<<endl;
 	//PErSemiPer
-	double semiPer1,semiPer2;
-	semiPer1= perimetro(dist12,dist24,distDiag14);
-	cout<<"Semiperimetro Tri 1: "<<semiPer1<<endl;
+	double semiPer1,semiPer2,per1,per2;
 	semiPer2 = perimetro(dist13,dist34,distDiag14);
+	semiPer1= perimetro(dist12,dist24,distDiag14);
+	per1 = perimetro2(dist12,dist24,distDiag14);
+	per2 = perimetro2(dist13,dist34,distDiag14);
+	cout<<"Semiperimetro Tri 1: "<<semiPer1<<endl;
+	cout<<"perimetro Tri 1"<<per1<<endl;
 	cout<<"Semiperimetro Tri 2: "<<semiPer2<<endl;
+	cout<<"perimetro Tri 2"<<per2<<endl;
 	return 0;
 }
 bool validarCoord(double coordX1V,double coordX2V,double coordX3V,double coordX4V,double coordY1V,double coordY2V,double coordY3V,double coordY4V){
@@ -119,6 +125,10 @@ double distancia(double coordX1D,double coordY1D,double coordX2D,double coordY2D
 double perimetro(double dist1,double dist2,double dist3){
 	double per = (dist1+dist2+dist3)/2;
 	return per;
+}
+double perimetro2(double dist1,double dist2,double dist3){
+	double per2= dist1+dist2+dist3;
+	return per2;
 }
 unsigned long long int factorial(int arg){
 	if (arg==0)
